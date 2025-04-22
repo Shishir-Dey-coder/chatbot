@@ -1,0 +1,55 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="dev-banner">
+    <i class="fas fa-tools"></i> This application is currently in Development Phase
+</div>
+
+<div class="hero">
+    <h1>Welcome to Our Smart ChatBot</h1>
+    <p>An intelligent assistant designed to make your life easier. Currently under development with exciting features coming soon!</p>
+    
+    {% if user.is_authenticated %}
+        <a href="#" class="btn">Try the ChatBot</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="btn">Login to Get Started</a>
+    {% endif %}
+</div>
+
+<div class="features">
+    <div class="feature-card">
+        <i class="fas fa-comment-dots"></i>
+        <h3>Natural Conversations</h3>
+        <p>Our chatbot understands and responds naturally, just like talking to a human.</p>
+    </div>
+    
+    <div class="feature-card">
+        <i class="fas fa-brain"></i>
+        <h3>AI-Powered</h3>
+        <p>Powered by advanced machine learning to provide accurate and helpful responses.</p>
+    </div>
+    
+    <div class="feature-card">
+        <i class="fas fa-lock"></i>
+        <h3>Secure & Private</h3>
+        <p>Your conversations are encrypted and never shared with third parties.</p>
+    </div>
+</div>
+
+<div style="text-align: center; margin: 50px 0;">
+    <h2>Coming Soon Features</h2>
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+        <div style="background: white; padding: 15px 25px; margin: 10px; border-radius: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+            <i class="fas fa-language" style="color: var(--primary-color); margin-right: 10px;"></i> Multi-language Support
+        </div>
+        <div style="background: white; padding: 15px 25px; margin: 10px; border-radius: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+            <i class="fas fa-mobile-alt" style="color: var(--primary-color); margin-right: 10px;"></i> Mobile App
+        </div>
+        <div style="background: white; padding: 15px 25px; margin: 10px; border-radius: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+            <i class="fas fa-robot" style="color: var(--primary-color); margin-right: 10px;"></i> Personality Customization
+        </div>
+    </div>
+</div>
+{% endblock %}

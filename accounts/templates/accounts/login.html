@@ -1,0 +1,40 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="auth-card">
+    <h1><i class="fas fa-robot"></i> ChatBot Login</h1>
+    
+    {% if form.errors %}
+    <div style="color: var(--danger-color); margin-bottom: 20px;">
+        Your username and password didn't match. Please try again.
+    </div>
+    {% endif %}
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="id_username">Username</label>
+            {{ form.username }}
+        </div>
+        
+        <div class="form-group">
+            <label for="id_password">Password</label>
+            {{ form.password }}
+        </div>
+        
+        <button type="submit" class="btn">Login</button>
+        
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+    
+    <div class="auth-links">
+        <!-- <a href="{% url 'password_reset' %}">Forgot password?</a> -->
+        <a href="#">Forgot password?</a>
+        <span> | </span>
+        <a href="{% url 'signup' %}">Create an account</a>
+    </div>
+</div>
+{% endblock %}
